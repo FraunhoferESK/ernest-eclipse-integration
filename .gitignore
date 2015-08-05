@@ -1,0 +1,8 @@
+syntax: glob
+**/bin/**
+**/xtend-gen/**
+**/src-gen/**
+**/.settings/**
+*.user
+*.ncb
+*.class

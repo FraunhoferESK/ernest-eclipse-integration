@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="de.fraunhofer.esk.ernest.analysis.framework" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="de.fraunhofer.esk.ernest.analysis.framework" id="analysis" name="Analysis"/>
+      </appinfo>
+      <documentation>
+         An Analysis is applied on a Resource in Eclipse. This Analysis extension point allows third-party plug-ins to define new Analyses without the need of implementing own menus and handlers. The added Analyses will be visible in the Context Menu of the Project Explorer.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <choice minOccurs="1" maxOccurs="unbounded">
+            <element ref="analyse" minOccurs="1" maxOccurs="unbounded"/>
+         </choice>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="analyse">
+      <annotation>
+         <documentation>
+            This adds an Analysis to the corresponding menu.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A human readable name of an Analysis. This will be displayed in a menu.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The fully qualified name of the class that implements IAnalysis.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":de.fraunhofer.esk.ernest.analysis.framework.IAnalysis"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="extension" type="string">
+            <annotation>
+               <documentation>
+                  The extension(s) of the files for which this Analysis should be visible and selectable. Leave it blank or use * to activate the analysis for every file. Multiple Extensions can be declared, separator is a comma.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="handler" type="string">
+            <annotation>
+               <documentation>
+                  fully qualified name of a class that implements IAnalysisHandler. use this if you want to customize the output about the outcome of the analysis.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":de.fraunhofer.esk.ernest.core.analysis.framework.interfaces.IAnalysisHandler"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         1.0.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         The following is an example
+of the Analysis extension point usage:
+&lt;p&gt;
+&lt;pre&gt;
+ &lt;extension
+         point=&quot;de.fraunhofer.esk.ernest.analysis.framework.analysis&quot;&gt;
+      &lt;analyse
+            class=&quot;com.example.analyse.ExampleAnalysis&quot;
+            name=&quot;Example Analysis&quot;
+            extension=&quot;exa&quot;&gt;
+      &lt;/analyse&gt;
+   &lt;/extension&gt;
+&lt;/pre&gt;
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiinfo"/>
+      </appinfo>
+      <documentation>
+         Plug-Ins that want to extend this extension point must define Analysis classes that implement &lt;samp&gt;de.fraunhofer.esk.ernest.analysis.framework.interface.IAnalysis&lt;/samp&gt;
+for usage in the extension.
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) 2015 Fraunhofer Institute for Embedded Systems and
+Communication Technologies ESK
+
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+      </documentation>
+   </annotation>
+
+</schema>

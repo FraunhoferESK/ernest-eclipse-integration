@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+	<extensionContent id="de.fraunhofer.esk.ernest.overview"
+		name="ERNEST Overview" style="stylesheet.css" path="overview/@">
+		<group label="ERNEST First Steps" style-id="content-group"
+			id="de.fraunhofer.esk.ernest-overview-group">
+			<link label="Example Project"
+				url="http://org.eclipse.ui.intro/runAction?pluginId=org.eclipse.ui.ide&#38;class=org.eclipse.ui.actions.NewExampleAction"
+				id="newexampleproject-introLink" style-id="content-link">
+				<text>Start with an example project</text>
+			</link>
+			<link label="ERNEST Documentation"
+				url="http://org.eclipse.ui.intro/showHelpTopic?id=/de.fraunhofer.esk.ernest.documentation/doc/toc.html"
+				id="ernestdoc-introLink" style-id="content-link">
+				<text>Learn how to use ERNEST</text>
+			</link>
+		</group>
+	</extensionContent>
+</introContent>

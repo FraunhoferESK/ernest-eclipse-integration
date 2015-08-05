@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toc label="ERNEST Documentation">
+   <topic href="doc/purpose.html" label="About ERNEST">
+   </topic>
+   <topic href="doc/toc.html" label="Getting Started">
+      <topic href="doc/tutorial.html" label="First Steps">
+	      <topic href="doc/tutorial.html#create" label="Create example ERNEST model">
+	      </topic>
+	      <topic href="doc/tutorial.html#generate" label="Generate, build and execute simulation">
+	      </topic>
+	      <topic href="doc/tutorial.html#run" label="Run analysis">
+	      </topic>
+	      <topic href="doc/tutorial.html#visualize" label="Visualize results">
+	      </topic>
+      </topic>
+      <anchor id="additional"/>
+   </topic>
+   <anchor id="other-additional"/>
+   <topic href="doc/legal.html" label="Legal">
+   </topic>
+</toc>

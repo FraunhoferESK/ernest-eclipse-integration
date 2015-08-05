@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ERNEST Analysis Plug-In
+Bundle-SymbolicName: de.fraunhofer.esk.ernest.core.analysis;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.fraunhofer.esk.ernest.core.analysis.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ de.fraunhofer.esk.ernest.core.analysis.framework;bundle-version="1.0.0",
+ de.fraunhofer.esk.ernest.core.analysismodel.editor;bundle-version="1.0.0",
+ de.fraunhofer.esk.ernest.core.analysismodel
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Vendor: Fraunhofer ESK
+Export-Package: de.fraunhofer.esk.ernest.core.analysis.analyses.portdelay

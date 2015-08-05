@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.common.ui.examples">
+      <example
+            pageImage="icon/ernest_16.png"
+            wizardID="de.fraunhofer.esk.ernest.examples">
+         <projectDescriptor
+               contentURI="contents/de.fraunhofer.esk.ernest.casestudy.bbw.zip"
+               description="Creates a project that contains an EAST-ADL Model of a break-by-wire system and the transformed ERNEST model."
+               name="de.fraunhofer.esk.ernest.casestudy.bbw">
+         </projectDescriptor>
+      </example>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="de.fraunhofer.esk.ernest.example.category"
+            name="ERNEST"
+            parentCategory="org.eclipse.ui.Examples">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.eclipse.ui.Examples/de.fraunhofer.esk.ernest.example.category"
+            class="org.eclipse.emf.common.ui.wizard.ExampleInstallerWizard"
+            finalPerspective="org.eclipse.papyrus.infra.core.perspective"
+            icon="icon/ernest_16.png"
+            id="de.fraunhofer.esk.ernest.examples"
+            name="ERNEST example model"
+            project="true">
+         <description>
+            Creates an ERNEST example model
+         </description>
+      </wizard>
+   </extension>
+
+</plugin>

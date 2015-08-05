@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?NLS TYPE="org.eclipse.help.contexts"?>
+
+<contexts>
+
+   <context id="help_general" title="ERNEST">
+
+        <description>
+        
+    This wizard will create the C++-Code to simulate an ERNEST model.
+
+Please provide a name for the project that is generated. If the project already exits, files and build configurations may be overwritten.
+		</description>
+
+   </context>
+
+</contexts>
+

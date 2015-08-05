@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ERNEST Analysis Meta-Modell
+Bundle-SymbolicName: de.fraunhofer.esk.ernest.core.analysismodel;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: Fraunhofer ESK
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: ernest,
+ ernest.architecture,
+ ernest.architecture.impl,
+ ernest.architecture.types,
+ ernest.architecture.types.impl,
+ ernest.architecture.util,
+ ernest.impl,
+ ernest.timingspecification,
+ ernest.timingspecification.impl,
+ ernest.timingspecification.util,
+ ernest.tracing,
+ ernest.tracing.impl,
+ ernest.tracing.util,
+ ernest.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport
+Bundle-ActivationPolicy: lazy

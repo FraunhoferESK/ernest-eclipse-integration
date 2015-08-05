@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.fraunhofer.esk.ernest</groupId>
+	<artifactId>de.fraunhofer.esk.ernest.parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<!-- common settings for all modules -->
+	<properties>
+		<tycho-version>0.22.0</tycho-version>
+	</properties>
+
+	<repositories>
+		<!-- configure p2 repository to resolve against -->
+		<repository>
+			<id>eclipse-project-mars</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/mars</url>
+		</repository>
+		<repository>
+			<id>eclipse-project</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/eclipse/updates/4.5</url>
+		</repository>
+		<repository>
+			<id>papyrus</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/modeling/mdt/papyrus/updates/releases/mars</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- enable the Tycho build extension -->
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+	</build>
+	<modules>
+		<module>../de.fraunhofer.esk.ernest.core.analysis</module>
+		<module>
+			../de.fraunhofer.esk.ernest.core.analysis.framework
+		</module>
+		<module>../de.fraunhofer.esk.ernest.core.analysismodel</module>
+		<module>
+			../de.fraunhofer.esk.ernest.core.analysismodel.edit
+		</module>
+		<module>
+			../de.fraunhofer.esk.ernest.core.analysismodel.editor
+		</module>
+		<module>../de.fraunhofer.esk.ernest.core.cdt</module>
+		<module>../de.fraunhofer.esk.ernest.core.feature</module>
+		<module>../de.fraunhofer.esk.ernest.core.generator</module>
+		<module>
+			../de.fraunhofer.esk.ernest.core.generator.preferences
+		</module>
+		
+		<module>../de.fraunhofer.esk.ernest.documentation</module>
+		<module>../de.fraunhofer.esk.ernest.example</module>
+		
+		<module>../de.fraunhofer.esk.ernest.tutorial</module>
+		
+		
+		<module>
+			../de.fraunhofer.esk.ernest.visualization.feature
+		</module>
+		<module>
+			../de.fraunhofer.esk.ernest.visualization.ganttchart
+		</module>
+	</modules>
+</project>

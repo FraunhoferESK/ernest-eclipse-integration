@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="de.fraunhofer.esk.ernest.visualization.ganttchart.editor.category1"
+            name="ERNEST Visualization">
+      </category>
+      <view
+            category="de.fraunhofer.esk.ernest.visualization.ganttchart.editor.category1"
+            class="de.fraunhofer.esk.ernest.visualization.ganttchart.editor.views.ViewListComponents"
+            icon="icons/View.gif"
+            id="de.fraunhofer.esk.ernest.visualization.ganttchart.editor.views.ViewListComponents"
+            name="VisualizationView"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            description="Commands related to List of Components View"
+            id="de.fraunhofer.esk.ernest.visualization.ganttchart.editor.commands.category"
+            name="LComponents">
+      </category>
+      <command
+            categoryId="de.fraunhofer.esk.ernest.visualization.ganttchart.editor.commands.category"           
+            description="Open the List of components if it is not already visible"
+            id="de.fraunhofer.esk.ernest.visualization.ganttchart.editor.commands.openLComponents"
+            name="List of components">
+         <commandParameter
+               id="de.fraunhofer.esk.ernest.visualization.ganttchart.editor.commandParameter.filePath"
+               name="file Path"
+               optional="true">
+         </commandParameter>
+      </command>
+   </extension>  
+ <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:ERNEST.ContextMenu?after=ERNEST.ContextMenu.RunAnalysis">
+         <command
+               commandId="de.fraunhofer.esk.ernest.visualization.ganttchart.editor.commands.openLComponents"
+               id="ERNEST.ContextMenu.Visualization"
+               label="Visualize Analysis Results"
+               mnemonic="V"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+    <extension
+       point="org.eclipse.ui.handlers">
+    <handler
+          class="de.fraunhofer.esk.ernest.visualization.ganttchart.editor.actions.OpenListComponentsHandler"
+          commandId="de.fraunhofer.esk.ernest.visualization.ganttchart.editor.commands.openLComponents">
+    </handler>
+ </extension>
+    <extension
+          point="org.eclipse.ui.preferencePages">
+       <page
+             category="de.fraunhofer.esk.ernest.core.analysis.framework.nestedPage"
+             class="de.fraunhofer.esk.ernest.visualization.ganttchart.preferences.VisualizationPreferencePage"
+             id="de.fraunhofer.esk.ernest.visualization.page1"
+             name="Visualization">
+       </page>
+    </extension>
+    <extension
+          point="org.eclipse.core.runtime.preferences">
+       <initializer
+             class="de.fraunhofer.esk.ernest.visualization.ganttchart.preferences.VisualizationPreferenceInitializer">
+       </initializer>
+    </extension>
+</plugin>
+

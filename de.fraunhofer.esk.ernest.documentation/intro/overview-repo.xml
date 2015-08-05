@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+	<extensionContent id="de.fraunhofer.esk.ernest.overview-repo"
+		name="ERNEST Repositories" style="stylesheet.css" path="overview/@">
+		<group label="ERNEST Repositories" style-id="content-group"
+			id="de.fraunhofer.esk.ernest-repos-group">
+			<link label="ERNEST Simulation Framework on GitHub"
+				url="http://org.eclipse.ui.intro/openBrowser?url=https://github.com/FraunhoferESK/ernest-simulation-framework"
+				id="ernestsimrepo-introLink" style-id="content-link">
+				<text>Contribute to the simulation framework</text>
+			</link>
+			<link label="ERNEST Eclipse Integration on GitHub"
+				url="http://org.eclipse.ui.intro/openBrowser?url=https://github.com/FraunhoferESK/ernest-eclipse-integration"
+				id="ernesteclipserepo-introLink" style-id="content-link">
+				<text>Contribute to the Eclipse integration</text>
+			</link>
+		</group>
+	</extensionContent>
+</introContent>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension-point id="tracereader" name="de.fraunhofer.esk.ernest.tracereader" schema="schema/tracereader.exsd"/>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.esk.fraunhofer.de/ERNEST/1"
+            class="ernest.ErnestPackage"
+            genModel="analysis.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated analysis -->
+      <package
+            uri="http://www.esk.fraunhofer.de/ERNEST/Architecture/1"
+            class="ernest.architecture.ArchitecturePackage"
+            genModel="analysis.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated analysis -->
+      <package
+            uri="http://www.esk.fraunhofer.de/ERNEST/Architecture/Types/1"
+            class="ernest.architecture.types.TypesPackage"
+            genModel="analysis.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated analysis -->
+      <package
+            uri="http://www.esk.fraunhofer.de/ERNEST/TimingSpecification/1"
+            class="ernest.timingspecification.TimingspecificationPackage"
+            genModel="analysis.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated analysis -->
+      <package
+            uri="http://www.esk.fraunhofer.de/ERNEST/Tracing/1"
+            class="ernest.tracing.TracingPackage"
+            genModel="analysis.genmodel"/>
+   </extension>
+
+</plugin>

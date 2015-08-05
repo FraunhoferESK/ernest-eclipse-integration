@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ernest:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ernest="http://www.esk.fraunhofer.de/ERNEST/1" xmlns:ernest.architecture="http://www.esk.fraunhofer.de/ERNEST/Architecture/1" xmlns:ernest.timingspecification="http://www.esk.fraunhofer.de/ERNEST/TimingSpecification/1" title="BrakeSystem">
+  <structureModel name="ERNEST Structure Model">
+    <modules xsi:type="ernest.architecture:Function" name="BrakeTorqueCalc" wcet="3" period="15" priority="10" allocatedTo="//@structureModel/@modules.5">
+      <ports xsi:type="ernest.architecture:FlowPort" name="inPedalValue" connectedTo="//@structureModel/@connectors.2"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="TorqueRequest" connectedTo="//@structureModel/@connectors.0" kind="Out"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Function" name="BrakeController" wcet="7" period="15" allocatedTo="//@structureModel/@modules.5" offset="3">
+      <ports xsi:type="ernest.architecture:FlowPort" name="RequestedTorque" connectedTo="//@structureModel/@connectors.0"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="VehicleSpeed_IN" connectedTo="//@structureModel/@connectors.6"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="BrakeRef_1" connectedTo="//@structureModel/@connectors.11" kind="Out"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="BrakeRef_2" connectedTo="//@structureModel/@connectors.12" kind="Out"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="VehicleSpeedRef" connectedTo="//@structureModel/@connectors.9 //@structureModel/@connectors.10" kind="Out"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Function" name="ABS_1" wcet="1" period="2" allocatedTo="//@structureModel/@modules.4" offset="10">
+      <ports xsi:type="ernest.architecture:FlowPort" name="CurrentVehicleSpeed" connectedTo="//@structureModel/@connectors.9"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="BrakeRef" connectedTo="//@structureModel/@connectors.11"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="brakeForceDisc" connectedTo="//@structureModel/@connectors.14" kind="Out"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="WheelSpeed" connectedTo="//@structureModel/@connectors.13"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Function" name="ABS_2" wcet="1" period="2" allocatedTo="//@structureModel/@modules.6" offset="10">
+      <ports xsi:type="ernest.architecture:FlowPort" name="CurrentVehicleSpeed" connectedTo="//@structureModel/@connectors.10"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="BrakeRef" connectedTo="//@structureModel/@connectors.12"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="brakeForceDisc" connectedTo="//@structureModel/@connectors.15" kind="Out"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="WheelSpeed" connectedTo="//@structureModel/@connectors.16"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:ECU" name="WheelECU_1" schedulerType="RoundRobin" performanceFactor="1.0">
+      <ports name="Bus_1" connectedTo="//@structureModel/@connectors.23"/>
+      <ports name="BrakeActuatorIOPort" connectedTo="//@structureModel/@connectors.18"/>
+      <ports name="WheelSpeedSensorIOPort" connectedTo="//@structureModel/@connectors.19"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:ECU" name="BrakeECU" schedulerType="RoundRobin" performanceFactor="1.0">
+      <ports name="Bus_1" connectedTo="//@structureModel/@connectors.24"/>
+      <ports name="BrakePedalHWIO" connectedTo="//@structureModel/@connectors.17"/>
+      <ports name="VehicleSpeedSensorIOport" connectedTo="//@structureModel/@connectors.22"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:ECU" name="WheelECU_2" schedulerType="RoundRobin" performanceFactor="1.0">
+      <ports name="Bus_1" connectedTo="//@structureModel/@connectors.25"/>
+      <ports name="BrakeActuatorIOPort" connectedTo="//@structureModel/@connectors.20"/>
+      <ports name="WheelSpeedSensorIOPort" connectedTo="//@structureModel/@connectors.21"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Sensor" name="BrakePedalSensor">
+      <ports name="BrakePedalIOPort" connectedTo="//@structureModel/@connectors.17"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Sensor" name="VehicleSpeedSensor">
+      <ports name="VehicleSpeedSensorIOport" connectedTo="//@structureModel/@connectors.22"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Actuator" name="BrakeActuator_1">
+      <ports name="BrakeActuatorIOPort" connectedTo="//@structureModel/@connectors.18"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Actuator" name="BrakeActuator_2">
+      <ports name="BrakeActuatorIOPort" connectedTo="//@structureModel/@connectors.20"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Sensor" name="WheelSpeedSensor_2">
+      <ports name="WheelSpeedSensorIOPort" connectedTo="//@structureModel/@connectors.21"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Bus" name="Bus_1">
+      <ports name="WheelECU_1_Bus_1" connectedTo="//@structureModel/@connectors.23"/>
+      <ports name="BrakeECU_Bus_1" connectedTo="//@structureModel/@connectors.24"/>
+      <ports name="WheelECU_2_Bus_1" connectedTo="//@structureModel/@connectors.25"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Sensor" name="WheelSpeedSensor_1">
+      <ports name="WheelSpeedSensorIOPort" connectedTo="//@structureModel/@connectors.19"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Environment" name="Environment">
+      <ports xsi:type="ernest.architecture:FlowPort" name="PedalReading" connectedTo="//@structureModel/@connectors.1"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="VehicleSpeed" connectedTo="//@structureModel/@connectors.3"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="WheelIOReading_1" connectedTo="//@structureModel/@connectors.4"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="WheelIOReading_2" connectedTo="//@structureModel/@connectors.5"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="BrakeIO_1" connectedTo="//@structureModel/@connectors.7" kind="Out"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="BrakeIO_2" connectedTo="//@structureModel/@connectors.8" kind="Out"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Function" name="WheelSpeedLDM_1" wcet="1" period="2" allocatedTo="//@structureModel/@modules.4">
+      <ports xsi:type="ernest.architecture:FlowPort" name="Pulse_IN" connectedTo="//@structureModel/@connectors.4"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="WheelSpeed" connectedTo="//@structureModel/@connectors.13" kind="Out"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Function" name="WheelSpeedLDM_2" wcet="1" period="2" allocatedTo="//@structureModel/@modules.6">
+      <ports xsi:type="ernest.architecture:FlowPort" name="Pulse_IN" connectedTo="//@structureModel/@connectors.5"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="WheelSpeed" connectedTo="//@structureModel/@connectors.16" kind="Out"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Function" name="BrakeLDM_1" wcet="1" period="2" allocatedTo="//@structureModel/@modules.4">
+      <ports xsi:type="ernest.architecture:FlowPort" name="BrakeTorque" connectedTo="//@structureModel/@connectors.14"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="BrakeIO" connectedTo="//@structureModel/@connectors.7" kind="Out"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Function" name="BrakeLDM_2" wcet="1" period="2" allocatedTo="//@structureModel/@modules.6">
+      <ports xsi:type="ernest.architecture:FlowPort" name="BrakeTorque" connectedTo="//@structureModel/@connectors.15"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="BrakeIO" connectedTo="//@structureModel/@connectors.8" kind="Out"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Function" name="BrakePedalLDM" wcet="1" period="4" allocatedTo="//@structureModel/@modules.5">
+      <ports xsi:type="ernest.architecture:FlowPort" name="PedalReading" connectedTo="//@structureModel/@connectors.1"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="outPedalValue" connectedTo="//@structureModel/@connectors.2" kind="Out"/>
+    </modules>
+    <modules xsi:type="ernest.architecture:Function" name="VehicleSpeedLDM" wcet="3" period="63" allocatedTo="//@structureModel/@modules.5">
+      <ports xsi:type="ernest.architecture:FlowPort" name="VehicleSpeed_IN" connectedTo="//@structureModel/@connectors.3"/>
+      <ports xsi:type="ernest.architecture:FlowPort" name="VehicleSpeed" connectedTo="//@structureModel/@connectors.6" kind="Out"/>
+    </modules>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector1" connectedTo="//@structureModel/@modules.0/@ports.1 //@structureModel/@modules.1/@ports.0"/>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector2" connectedTo="//@structureModel/@modules.14/@ports.0 //@structureModel/@modules.19/@ports.0"/>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector9" connectedTo="//@structureModel/@modules.19/@ports.1 //@structureModel/@modules.0/@ports.0"/>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector12" connectedTo="//@structureModel/@modules.20/@ports.0 //@structureModel/@modules.14/@ports.1"/>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector13" connectedTo="//@structureModel/@modules.15/@ports.0 //@structureModel/@modules.14/@ports.2"/>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector14" connectedTo="//@structureModel/@modules.16/@ports.0 //@structureModel/@modules.14/@ports.3"/>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector17" connectedTo="//@structureModel/@modules.20/@ports.1 //@structureModel/@modules.1/@ports.1"/>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector19" connectedTo="//@structureModel/@modules.17/@ports.1 //@structureModel/@modules.14/@ports.4"/>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector23" connectedTo="//@structureModel/@modules.18/@ports.1 //@structureModel/@modules.14/@ports.5"/>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector10" connectedTo="//@structureModel/@modules.1/@ports.4 //@structureModel/@modules.2/@ports.0"/>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector11" connectedTo="//@structureModel/@modules.1/@ports.4 //@structureModel/@modules.3/@ports.0"/>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector25" connectedTo="//@structureModel/@modules.1/@ports.2 //@structureModel/@modules.2/@ports.1"/>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector26" connectedTo="//@structureModel/@modules.1/@ports.3 //@structureModel/@modules.3/@ports.1"/>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector27" connectedTo="//@structureModel/@modules.2/@ports.3 //@structureModel/@modules.15/@ports.1"/>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector28" connectedTo="//@structureModel/@modules.2/@ports.2 //@structureModel/@modules.17/@ports.0"/>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector29" connectedTo="//@structureModel/@modules.3/@ports.2 //@structureModel/@modules.18/@ports.0"/>
+    <connectors xsi:type="ernest.architecture:SoftwareConnector" name="FunctionConnector30" connectedTo="//@structureModel/@modules.3/@ports.3 //@structureModel/@modules.16/@ports.1"/>
+    <connectors xsi:type="ernest.architecture:HardwareConnector" name="HardwareConnector1" connectedTo="//@structureModel/@modules.5/@ports.1 //@structureModel/@modules.7/@ports.0"/>
+    <connectors xsi:type="ernest.architecture:HardwareConnector" name="HardwareConnector2" connectedTo="//@structureModel/@modules.4/@ports.1 //@structureModel/@modules.9/@ports.0"/>
+    <connectors xsi:type="ernest.architecture:HardwareConnector" name="HardwareConnector3" connectedTo="//@structureModel/@modules.4/@ports.2 //@structureModel/@modules.13/@ports.0"/>
+    <connectors xsi:type="ernest.architecture:HardwareConnector" name="HardwareConnector4" connectedTo="//@structureModel/@modules.6/@ports.1 //@structureModel/@modules.10/@ports.0"/>
+    <connectors xsi:type="ernest.architecture:HardwareConnector" name="HardwareConnector6" connectedTo="//@structureModel/@modules.6/@ports.2 //@structureModel/@modules.11/@ports.0"/>
+    <connectors xsi:type="ernest.architecture:HardwareConnector" name="HardwareConnector7" connectedTo="//@structureModel/@modules.8/@ports.0 //@structureModel/@modules.5/@ports.2"/>
+    <connectors xsi:type="ernest.architecture:HardwareConnector" name="HardwareConnector_Bus_1_WheelECU_1" connectedTo="//@structureModel/@modules.12/@ports.0 //@structureModel/@modules.4/@ports.0"/>
+    <connectors xsi:type="ernest.architecture:HardwareConnector" name="HardwareConnector_Bus_1_BrakeECU" connectedTo="//@structureModel/@modules.12/@ports.1 //@structureModel/@modules.5/@ports.0"/>
+    <connectors xsi:type="ernest.architecture:HardwareConnector" name="HardwareConnector_Bus_1_WheelECU_2" connectedTo="//@structureModel/@modules.12/@ports.2 //@structureModel/@modules.6/@ports.0"/>
+  </structureModel>
+  <timingModel name="ERNEST Timing Model">
+    <constraints xsi:type="ernest.timingspecification:ReactionConstraint" name="PedalValue_BrakeRef_1Constraint" stimulus="//@structureModel/@modules.0/@ports.0" response="//@structureModel/@modules.1/@ports.2" maximumLatency="11.0"/>
+  </timingModel>
+</ernest:Model>

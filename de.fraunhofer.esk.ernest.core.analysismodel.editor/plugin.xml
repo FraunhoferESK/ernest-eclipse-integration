@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="de.fraunhofer.esk.ernest.category"
+            name="ERNEST"/>
+      <wizard
+            id="ernest.presentation.ErnestModelWizardID"
+            name="%_UI_ErnestModelWizard_label"
+            class="ernest.presentation.ErnestModelWizard"
+            category="de.fraunhofer.esk.ernest.category"
+            icon="icons/full/obj16/ErnestModelFile.gif">
+         <description>Create a new ERNEST model without transforming from an existing user model</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated analysis -->
+      <editor
+            id="ernest.tracing.presentation.TracingEditorID"
+            name="%_UI_TracingEditor_label"
+            icon="icons/full/obj16/TracingModelFile.gif"
+            extensions="tracing"
+            class="ernest.tracing.presentation.TracingEditor"
+            contributorClass="ernest.tracing.presentation.TracingActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated analysis -->
+      <editor
+            id="ernest.timingspecification.presentation.TimingspecificationEditorID"
+            name="%_UI_TimingspecificationEditor_label"
+            icon="icons/full/obj16/TimingspecificationModelFile.gif"
+            extensions="timingspecification"
+            class="ernest.timingspecification.presentation.TimingspecificationEditor"
+            contributorClass="ernest.timingspecification.presentation.TimingspecificationActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated analysis -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ernest.tracing.presentation.TracingModelWizardID"
+            name="%_UI_TracingModelWizard_label"
+            class="ernest.tracing.presentation.TracingModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TracingModelFile.gif">
+         <description>%_UI_TracingModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated analysis -->
+      <editor
+            id="ernest.architecture.presentation.ArchitectureEditorID"
+            name="%_UI_ArchitectureEditor_label"
+            icon="icons/full/obj16/ArchitectureModelFile.gif"
+            extensions="architecture"
+            class="ernest.architecture.presentation.ArchitectureEditor"
+            contributorClass="ernest.architecture.presentation.ArchitectureActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated analysis -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ernest.timingspecification.presentation.TimingspecificationModelWizardID"
+            name="%_UI_TimingspecificationModelWizard_label"
+            class="ernest.timingspecification.presentation.TimingspecificationModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TimingspecificationModelFile.gif">
+         <description>%_UI_TimingspecificationModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="ernest.presentation.ErnestEditorID"
+            name="%_UI_ErnestEditor_label"
+            icon="icons/full/obj16/ErnestModelFile.gif"
+            extensions="ernest"
+            class="ernest.presentation.ErnestEditor"
+            contributorClass="ernest.presentation.ErnestActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated analysis -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ernest.architecture.presentation.ArchitectureModelWizardID"
+            name="%_UI_ArchitectureModelWizard_label"
+            class="ernest.architecture.presentation.ArchitectureModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ArchitectureModelFile.gif">
+         <description>%_UI_ArchitectureModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+</plugin>

@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ERNEST Help</title>
+<link rel="stylesheet" type="text/css" href="PLUGINS_ROOT/PRODUCT_PLUGIN/book.css">
+<style>
+@media print {
+	h1 {
+		page-break-before: always;
+	}
+	li {
+		page-break-inside: avoid;
+	}
+}
+</style>
+</head>
+<body>
+	<h1 style="page-break-before: avoid">Goal of this document</h1>
+
+	<a id="goal"></a> In this document the usage of the ERNEST framework is
+	described. It explains the creation of an initial example model to get
+	started using ERNEST. Additionally, all the steps needed to analyse
+	Timing Constraints of a model are illustrated.
+	<p />
+
+	<h2>Short instruction:</h2>
+	<ol>
+		<li><a href="#create">Create example ERNEST model</a></li>
+		<li><a href="#generate">Generate, build and execute
+				simulation</a></li>
+		<li><a href="#run">Run analysis</a></li>
+		<li><a href="#visualize">Visualize results</a></li>
+	</ol>
+
+	<h1>Create example ERNEST model</h1>
+
+	<a id="create"></a> In this tutorial we will use an example model, as
+	this is the quickest way to see what ERNEST can do. The example
+	provides an EAST-ADL model of a brake-by-wire system and the
+	transformed ERNEST model. It is recommended to first have a look at the
+	provided example before starting with your own model.
+	<p />
+
+	An example ERNEST model can be created with the following steps:
+
+	<ol>
+		<li>Select <strong>File &gt; New &gt; Example ...</strong>.<br>
+			<br> <img src="tutorial_1.png"
+			alt="Select File &gt; New &gt; Example ... menu option" width="503"
+			height="212"> <br> <br>
+		</li>
+
+		<li>Select the type of example to create. For this tutorial, we
+			want to create an <strong>ERNEST example model</strong>.<br>
+			Select it and hit <strong>next</strong>. <br> <img
+			src="tutorial_2.png" alt="Select type ERNEST example model"
+			width="525" height="328"><br> <br>
+		</li>
+
+		<li>Currently there is only one example model for ERNEST
+			available, but this may be extended over time. Choose the <strong>de.fraunhofer.esk.ernest.casestudy.bbw</strong>
+			example and proceed with <strong>finish</strong>.<br> <img
+			src="tutorial_3.png" alt="Select bbw ERNEST example model"
+			width="525" height="323"><br> <br>
+		</li>
+
+		<li>The example is now copied into your workspace. The result
+			should look similar to this: <br> <img src="tutorial_4.png"
+			alt="Example project structure" width="295" height="215"><br>
+			The project contains the EAST-ADL UML model (uml), the Diagram files
+			for Papyrus (di, notation) as well as the transformed ERNEST model
+			(ernest). <br> <br>
+		</li>
+
+		<li>You can have a look at the brake-by-wire example using
+			Papyrus. Just double click on the <strong>BrakeSystem</strong>. <br>
+			<br>
+		</li>
+
+		<li>It is a little harder to open the ERNEST model, if it is
+			enclosed in the DI view of Papyrus, as it is the case here. You need
+			to use the <strong>open with</strong> context menu and select 
+			the <strong>ERNEST Model Editor</strong>. <br> <img
+			src="tutorial_4a.png" alt="Open ERNEST Model." width="499"
+			height="115"><br> <br>
+		</li>
+	</ol>
+	<p />
+	There are other ways to create an ERNEST model. You can also import
+	your own EAST-ADL model and use the provided transformation to create
+	the necessary ERNEST model. The transformation is still in an early
+	development state, so there is no guarantee it will succeed with every
+	EAST-ADL model. Finally you could also create an ERNEST model by hand,
+	although we recommend transforming an existing model and using this as
+	a starting point.
+
+	<h1>Generate, build and execute simulation</h1>
+	<a id="generate"></a> ERNEST can generate C++-Code for the simulation
+	of the modeled system. The results from this simulation can later be
+	used for an analysis.
+	<p />
+	<ol>
+		<li>In the context menu of the Model, select <strong>ERNEST
+				&gt; Generate Simulation</strong>.<br> <br> <img
+			src="tutorial_6.png"
+			alt="Select ERNEST &gt; Generate Simulation in the model's context menu"
+			width="634" height="472"> <br> <br>
+		</li>
+
+		<li>Enter the name of the created simulation project and hit <strong>Finish</strong>.
+			<br> <img src="tutorial_7.png"
+			alt="Choose a name for the simulation project." width="525"
+			height="430"><br> <br>
+		</li>
+
+		<li>The generated project contains the sources of the simulation
+			project and should look like this: <br> <img
+			src="tutorial_8.png" alt="Generated simulation project structure."
+			width="250" height="516"><br> There might be a warning
+			annotated to the project similar to:
+			<p />
+			<pre>Invalid project path: Missing project folder or file: \BrakeSystem_simProject\src-gen\ for Source path.</pre>
+			which is a confirmed bug of CDT and can be ignored. You can fix this
+			by just closing and opening the project. <br> <br>
+		</li>
+
+		<li>Make sure the simulation project is selected and build the
+			project with <strong>Project &gt; Build Project</strong>. <br> <img
+			src="tutorial_9.png"
+			alt="Select simulation project and build with Project &gt; Build Project."
+			width="232" height="172"><br> <br>
+		</li>
+
+		<li>The build will take a while, but finally you will end up with
+			a binary you can run. Select the project or binary and hit the run
+			button.<br> <img src="tutorial_10.png"
+			alt="Select binary and run it." width="677" height="161"><br> In case
+			the run button is not visible, you can use the context menu of
+			the binary to select <strong>Run As &gt; Local C/C++ Application</strong>. <br> <br>
+		</li>
+
+		<li>The first time you run a simulation, you will be asked to select a Debug Configuration for the launch. Select <strong>MinGW gdb</strong> and hit <strong>OK</strong>.<br> <img src="tutorial_10a.png"
+			alt="Select MinGW Debug Configuration and hit OK." width="398" height="437"> <br> <br>
+		</li>
+
+		<li>The trace of the run is written to the project that was used
+			to generate the simulation. To see the trace, you need to refresh the
+			project.<br> <img src="tutorial_11.png"
+			alt="Refresh the model project." width="441" height="254"><br>
+			<img src="tutorial_11a.png" alt="Trace in model project." width="273"
+			height="54"><br> <br>
+		</li>
+	</ol>
+	<h1>Run analysis</h1>
+	<a id="run"></a>Once a recorded trace is available, it can be analyzed
+	and the specified constraints can be checked. The example model
+	contains a reaction constraint that limits the time the system may take
+	to process the brake pedal value and calculate new control values for
+	the brakes.
+	
+	<ol>
+		<li>In the context menu of the Model, select <strong>ERNEST
+				&gt; Run Analyses</strong>.<br> <br> <img
+			src="tutorial_12.png"
+			alt="Select ERNEST &gt; Run Analyses in the model's context menu"
+			width="690" height="498"> <br> <br>
+		</li>
+		<li>Choose the <strong>Reaction Constraint</strong> analysis and hit <strong>OK</strong>.
+			<br> <img src="tutorial_13.png"
+			alt="Choose Reaction Constraint analysis." width="359"
+			height="452"><br> <br>
+		</li>
+		<li>The completion dialog will tell you, if constraints have been
+			violated during the simulation. To see the list of violating
+			constraints use the <strong>Details &gt; &gt;</strong> button. The
+			visualization described in the next section will help you examine the
+			violated constraints further. You may close the dialog with <strong>OK</strong>. <br> <img src="tutorial_14.png"
+			alt="Details &gt; &gt; tell you the constraints that were violated."
+			width="548" height="334"><br> <br>
+		</li>
+		<li>The analysis results are stored in the ERNEST model and can be processed by other tools like the visualization.
+			<br> <img src="tutorial_15.png"
+			alt="Details &gt; &gt; tell you the constraints that were violated." width="558"
+			height="358"><br> <br>
+		</li>
+
+	</ol>
+	<h1>Visualize results</h1>
+	<a id="visualize"></a>ERNEST provides a special view to examen analysis
+	results. The green and red color coding make it easy to see when the
+	constraints were satisfied or violated.
+	
+	<ol>
+		<li>In the context menu of the Model, select <strong>ERNEST
+				&gt; Run Analyses</strong>.<br> <br> <img
+			src="tutorial_16.png"
+			alt="Select ERNEST &gt; Run Analyses in the model's context menu"
+			width="639" height="461"> <br> <br>
+		</li>
+		<li>ERNEST's visualization view will open but is still empty. Use <strong>Menu
+				&gt; Select All</strong> to show all analysis results.<br> <br> <img
+			src="tutorial_17.png"
+			alt="Use Menu &gt; Select All to show all results"
+			width="207" height="144"> <br> <br>
+		</li>
+		<li>There is a time-line for every checked constraint. More details, e.g., the stimuli and responses of the reaction constraint, can be shown with a <strong>double click</strong> on the constraint time line. Use the <strong>+ / -</strong> buttons to zoom in and out of the trace.<br> <br> <img
+			src="tutorial_18.png"
+			alt="ERNEST visualization view"
+			width="483" height="288"> <br> <br>
+		</li>
+	</ol>
+	
+	This concludes the first steps tutorial of ERNEST.
+</body>
+</html>

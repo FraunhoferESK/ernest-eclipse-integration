@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ERNEST Analysis Framework
+Bundle-SymbolicName: de.fraunhofer.esk.ernest.core.analysis.framework;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.fraunhofer.esk.ernest.core.analysis.framework.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;bundle-version="2.9.1",
+ org.eclipse.core.resources;bundle-version="3.9.0",
+ de.fraunhofer.esk.ernest.core.analysismodel;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: de.fraunhofer.esk.ernest.core.analysis.framework,
+ de.fraunhofer.esk.ernest.core.analysis.framework.interfaces;version="1.0.0";uses:="org.eclipse.core.runtime"
+Bundle-Vendor: Fraunhofer ESK

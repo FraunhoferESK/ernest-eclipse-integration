@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="de.fraunhofer.esk.ernest.visualization.feature"
+      label="ERNEST Visualization"
+      version="1.0.0.qualifier"
+      provider-name="Fraunhofer ESK">
+
+   <description url="http://www.esk.fraunhofer.de/en/projects/ERNEST.html">
+      This feature provides the Plug-Ins for ERNEST&apos;s visualizations.
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      Copyright (c) 2015 Fraunhofer ESK
+All rights reserved.   This program and the accompanying materials
+are made available under the terms of the Eclipse Public License
+v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseUrl">
+      %license
+   </license>
+
+   <plugin
+         id="de.fraunhofer.esk.ernest.visualization.ganttchart"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

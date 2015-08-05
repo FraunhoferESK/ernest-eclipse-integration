@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="de.fraunhofer.esk.ernest.core.analysis.framework.analysis">
+      <analyse
+            class="de.fraunhofer.esk.ernest.core.analysis.analyses.portdelay.AgeTimingConstraintAnalysis"
+            extension="ernest"
+            name="Age Timing Constraint">
+      </analyse>
+      <analyse
+            class="de.fraunhofer.esk.ernest.core.analysis.analyses.portdelay.ReactionConstraintAnalysis"
+            extension="ernest"
+            name="Reaction Constraint">
+      </analyse>
+      <analyse
+            class="de.fraunhofer.esk.ernest.core.analysis.analyses.portdelay.InputSynchronizationConstraintAnalysis"
+            extension="ernest"
+            name="Input Synchronization">
+      </analyse>
+      <analyse
+            class="de.fraunhofer.esk.ernest.core.analysis.analyses.portdelay.OutputSynchronizationConstraintAnalysis"
+            extension="ernest"
+            name="Output Synchronization">
+      </analyse>
+      <analyse
+            class="de.fraunhofer.esk.ernest.core.analysis.analyses.port.PeriodicRepetitionConstraintAnalysis"
+            extension="ernest"
+            name="Periodic Repetition Constraint">
+      </analyse>
+      <analyse
+            class="de.fraunhofer.esk.ernest.core.analysis.analyses.port.SporadicRepetitionConstraintAnalysis"
+            extension="ernest"
+            name="Sporadic Repetition Constraint">
+      </analyse>
+   </extension>
+
+
+</plugin>

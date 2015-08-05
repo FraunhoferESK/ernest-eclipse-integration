@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ERNEST Example Wizard
+Bundle-SymbolicName: de.fraunhofer.esk.ernest.example;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.fraunhofer.esk.ernest.example.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.common.ui
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Vendor: Fraunhofer ESK

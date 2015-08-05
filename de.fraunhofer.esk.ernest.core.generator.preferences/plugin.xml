@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+ 
+
+<extension
+      point="org.eclipse.core.runtime.preferences">
+   <initializer
+         class="de.fraunhofer.esk.ernest.core.generator.preferences.simulation.SimulationPreferenceInitializer">
+   </initializer>
+</extension>
+<extension
+      id="de.fraunhofer.esk.ernest.preferenceName"
+      point="org.eclipse.ui.preferencePages">
+   <page
+         category="de.fraunhofer.esk.ernest.core.analysis.framework.nestedPage"
+         class="de.fraunhofer.esk.ernest.core.generator.preferences.simulation.SimulationPreferencePage"
+         id="de.fraunhofer.esk.ernest.core.generator.preferences.simulationpage"
+         name="Simulation">
+   </page>
+</extension>
+
+ 
+
+</plugin>

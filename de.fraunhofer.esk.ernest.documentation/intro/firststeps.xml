@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+	<extensionContent id="de.fraunhofer.esk.ernest.firststeps"
+		name="ERNEST First Steps" style="stylesheet.css" path="firststeps/@">
+		<group label="ERNEST" style-id="content-group"
+			id="de.fraunhofer.esk.ernest-firststeps-group">
+			<link label="Example Project"
+				url="http://org.eclipse.ui.intro/runAction?pluginId=org.eclipse.ui.ide&#38;class=org.eclipse.ui.actions.NewExampleAction"
+				id="newexampleproject-introLink" style-id="content-link">
+				<text>Start with an example project</text>
+			</link>
+		</group>
+	</extensionContent>
+</introContent>

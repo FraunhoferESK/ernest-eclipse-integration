@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ERNEST Analysis Meta-Model Editor
+Bundle-SymbolicName: de.fraunhofer.esk.ernest.core.analysismodel.editor;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: ernest.presentation.AnalysisEditorPlugin$Implementation
+Bundle-Vendor: Fraunhofer ESK
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: ernest.architecture.presentation,
+ ernest.presentation,
+ ernest.timingspecification.presentation,
+ ernest.tracing.presentation
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.eclipse.emf.edit.ui;visibility:=reexport,
+ org.eclipse.ui.ide;visibility:=reexport,
+ de.fraunhofer.esk.ernest.core.analysismodel.edit;bundle-version="1.0.0";visibility:=reexport
+Bundle-ActivationPolicy: lazy

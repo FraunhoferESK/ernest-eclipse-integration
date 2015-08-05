@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ERNEST documentation
+Bundle-SymbolicName: de.fraunhofer.esk.ernest.documentation;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Fraunhofer ESK
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.help,
+ org.eclipse.ui.intro
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
