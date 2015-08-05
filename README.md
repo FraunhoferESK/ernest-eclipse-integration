@@ -1,4 +1,4 @@
-# The ERNEST Eclipe integration
+# The ERNEST Eclipse integration
 The ERNEST framework (EaRly verification and validation of Networked Embedded SysTems) is an open platform developed by Fraunhofer ESK for the early-stage analysis of component-based software in networked embedded systems. The aim is to allow the validation of non-functional requirements while the system is still being modelled and designed. To do this ERNEST links an in-house developed simulation framework with the Eclipse development environment, which offers the flexibility to use the platform in model-driven design processes.
 
 # Integration and adaptability
