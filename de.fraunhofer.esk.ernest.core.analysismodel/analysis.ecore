@@ -130,9 +130,9 @@
         <eLiterals name="InOut" value="2"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EEnum" name="SchedType">
-        <eLiterals name="FixedPriorityPreemptive"/>
+        <eLiterals name="RoundRobin"/>
         <eLiterals name="EarliestDeadlineFirst" value="1"/>
-        <eLiterals name="RoundRobin" value="2"/>
+        <eLiterals name="FixedPriorityPreemptive" value="2"/>
         <eLiterals name="FPPRM" value="3"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EEnum" name="ImplementationKind">

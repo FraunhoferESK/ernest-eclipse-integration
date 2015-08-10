@@ -48,7 +48,7 @@ public class ECUImpl extends HWModuleImpl implements ECU {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final SchedType SCHEDULER_TYPE_EDEFAULT = SchedType.FIXED_PRIORITY_PREEMPTIVE;
+	protected static final SchedType SCHEDULER_TYPE_EDEFAULT = SchedType.ROUND_ROBIN;
 
 	/**
 	 * The cached value of the '{@link #getSchedulerType() <em>Scheduler Type</em>}' attribute.

@@ -31,26 +31,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum SchedType implements Enumerator {
 	/**
-	 * The '<em><b>Fixed Priority Preemptive</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #FIXED_PRIORITY_PREEMPTIVE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	FIXED_PRIORITY_PREEMPTIVE(0, "FixedPriorityPreemptive", "FixedPriorityPreemptive"),
-
-	/**
-	 * The '<em><b>Earliest Deadline First</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #EARLIEST_DEADLINE_FIRST_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	EARLIEST_DEADLINE_FIRST(1, "EarliestDeadlineFirst", "EarliestDeadlineFirst"),
-
-	/**
 	 * The '<em><b>Round Robin</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,7 +38,23 @@ public enum SchedType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ROUND_ROBIN(2, "RoundRobin", "RoundRobin"),
+	ROUND_ROBIN(0, "RoundRobin", "RoundRobin"), /**
+	 * The '<em><b>Earliest Deadline First</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #EARLIEST_DEADLINE_FIRST_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	EARLIEST_DEADLINE_FIRST(1, "EarliestDeadlineFirst", "EarliestDeadlineFirst"), /**
+	 * The '<em><b>Fixed Priority Preemptive</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FIXED_PRIORITY_PREEMPTIVE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	FIXED_PRIORITY_PREEMPTIVE(2, "FixedPriorityPreemptive", "FixedPriorityPreemptive"),
 
 	/**
 	 * The '<em><b>FPPRM</b></em>' literal object.
@@ -71,19 +67,19 @@ public enum SchedType implements Enumerator {
 	FPPRM(3, "FPPRM", "FPPRM");
 
 	/**
-	 * The '<em><b>Fixed Priority Preemptive</b></em>' literal value.
+	 * The '<em><b>Round Robin</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Fixed Priority Preemptive</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Round Robin</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #FIXED_PRIORITY_PREEMPTIVE
-	 * @model name="FixedPriorityPreemptive"
+	 * @see #ROUND_ROBIN
+	 * @model name="RoundRobin"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FIXED_PRIORITY_PREEMPTIVE_VALUE = 0;
+	public static final int ROUND_ROBIN_VALUE = 0;
 
 	/**
 	 * The '<em><b>Earliest Deadline First</b></em>' literal value.
@@ -101,19 +97,19 @@ public enum SchedType implements Enumerator {
 	public static final int EARLIEST_DEADLINE_FIRST_VALUE = 1;
 
 	/**
-	 * The '<em><b>Round Robin</b></em>' literal value.
+	 * The '<em><b>Fixed Priority Preemptive</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Round Robin</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Fixed Priority Preemptive</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ROUND_ROBIN
-	 * @model name="RoundRobin"
+	 * @see #FIXED_PRIORITY_PREEMPTIVE
+	 * @model name="FixedPriorityPreemptive"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ROUND_ROBIN_VALUE = 2;
+	public static final int FIXED_PRIORITY_PREEMPTIVE_VALUE = 2;
 
 	/**
 	 * The '<em><b>FPPRM</b></em>' literal value.
@@ -138,9 +134,9 @@ public enum SchedType implements Enumerator {
 	 */
 	private static final SchedType[] VALUES_ARRAY =
 		new SchedType[] {
-			FIXED_PRIORITY_PREEMPTIVE,
-			EARLIEST_DEADLINE_FIRST,
 			ROUND_ROBIN,
+			EARLIEST_DEADLINE_FIRST,
+			FIXED_PRIORITY_PREEMPTIVE,
 			FPPRM,
 		};
 
@@ -198,9 +194,9 @@ public enum SchedType implements Enumerator {
 	 */
 	public static SchedType get(int value) {
 		switch (value) {
-			case FIXED_PRIORITY_PREEMPTIVE_VALUE: return FIXED_PRIORITY_PREEMPTIVE;
-			case EARLIEST_DEADLINE_FIRST_VALUE: return EARLIEST_DEADLINE_FIRST;
 			case ROUND_ROBIN_VALUE: return ROUND_ROBIN;
+			case EARLIEST_DEADLINE_FIRST_VALUE: return EARLIEST_DEADLINE_FIRST;
+			case FIXED_PRIORITY_PREEMPTIVE_VALUE: return FIXED_PRIORITY_PREEMPTIVE;
 			case FPPRM_VALUE: return FPPRM;
 		}
 		return null;

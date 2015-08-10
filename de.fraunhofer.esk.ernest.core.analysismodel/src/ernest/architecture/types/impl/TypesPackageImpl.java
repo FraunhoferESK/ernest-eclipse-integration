@@ -270,9 +270,9 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		addEEnumLiteral(portKindEEnum, PortKind.IN_OUT);
 
 		initEEnum(schedTypeEEnum, SchedType.class, "SchedType");
-		addEEnumLiteral(schedTypeEEnum, SchedType.FIXED_PRIORITY_PREEMPTIVE);
-		addEEnumLiteral(schedTypeEEnum, SchedType.EARLIEST_DEADLINE_FIRST);
 		addEEnumLiteral(schedTypeEEnum, SchedType.ROUND_ROBIN);
+		addEEnumLiteral(schedTypeEEnum, SchedType.EARLIEST_DEADLINE_FIRST);
+		addEEnumLiteral(schedTypeEEnum, SchedType.FIXED_PRIORITY_PREEMPTIVE);
 		addEEnumLiteral(schedTypeEEnum, SchedType.FPPRM);
 
 		initEEnum(implementationKindEEnum, ImplementationKind.class, "ImplementationKind");
