@@ -23,6 +23,7 @@ import ernest.architecture.Port
 import ernest.timingspecification.DelayConstraint
 import ernest.timingspecification.EventConstraint
 import ernest.timingspecification.TimingModel
+import ernest.architecture.Attribute
 
 class Generate_Function {
 	
@@ -102,6 +103,14 @@ class Generate_Function {
 		}
 	}
 	
+	def attributeConstructor(Attribute attribute)'''
+	
+	«attribute.name» ( «attribute.defaultValue» )'''
+	
+	def portConstructor(FlowPort port, FModule theFunction, Model model)'''
+	
+	«port.name»("«theFunction.name.toLowerCase»_«port.name»", context«generatePortTraceCalls(port, model.timingModel)»)'''
+	
 	def generateFunction(FModule theFunction, Model model)'''
 		#include <iostream>
 		#include <ernest/ernest.hpp>
@@ -110,13 +119,9 @@ class Generate_Function {
 		using namespace std;
 		
 		«theFunction.name»::«theFunction.name»(TaskContext *context) :
-				SoftwareFunction(context),
-				«IF !theFunction.attributes.empty»
-					«FOR attribute : theFunction.attributes SEPARATOR ','»«attribute.name»(«attribute.defaultValue»)«ENDFOR»,
-				«ENDIF» 
-				«FOR port : theFunction.ports.filter(FlowPort) SEPARATOR ','»
-					«port.name»("«theFunction.name.toLowerCase»_«port.name»", context«generatePortTraceCalls(port, model.timingModel)»)
-				«ENDFOR»
+				SoftwareFunction(context)«
+				»«theFunction.attributes.join(',', ',', '', [attributeConstructor])»«
+				»«theFunction.ports.filter(FlowPort).join(',', ',', '', [portConstructor(theFunction, model)])»
 		{
 		}
 		
