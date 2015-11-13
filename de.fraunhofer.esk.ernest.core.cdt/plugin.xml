@@ -47,6 +47,7 @@
    <command
          categoryId="de.fraunhofer.esk.ernest.core.cdt.category"
          defaultHandler="de.fraunhofer.esk.ernest.core.cdt.commands.GenerateSimulationHandler"
+         helpContextId="de.fraunhofer.esk.ernest.core.cdt.help_general"
          id="de.fraunhofer.esk.ernest.core.cdt.generateSimulation"
          name="Generate Simulation">
    </command>
@@ -74,13 +75,5 @@
          resolver="de.fraunhofer.esk.ernest.core.cdt.DynamicVariableResolver"
          supportsArgument="false">
    </variable>
-</extension>
-<extension
-      point="org.eclipse.ui.handlers">
-   <handler
-         class="de.fraunhofer.esk.ernest.core.cdt.commands.GenerateSimulationHandler"
-         commandId="de.fraunhofer.esk.ernest.core.cdt.generateSimulation"
-         helpContextId="de.fraunhofer.esk.ernest.core.cdt.help_general">
-   </handler>
 </extension>
 </plugin>
