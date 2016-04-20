@@ -102,15 +102,9 @@
       xsi:type="setup.p2:P2Task"
       label="Releng Tools">
     <requirement
-        name="org.eclipse.oomph.projectconfig.feature.group"/>
-    <requirement
-        name="org.eclipse.oomph.projectcopy.feature.group"/>
-    <requirement
         name="org.eclipse.oomph.workingsets.feature.group"/>
     <requirement
         name="org.eclipse.oomph.version.feature.group"/>
-    <requirement
-        name="org.eclipse.oomph.winexplorer.feature.group"/>
     <requirement
         name="org.eclipse.oomph.setup.mylyn.feature.group"/>
     <requirement
