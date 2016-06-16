@@ -23,17 +23,17 @@ public class DynamicVariableResolver implements IDynamicVariableResolver, CDTPre
 	
 	private String resolveURI(URI uri, String fallback) {
 		String fileString = uri.toFileString();
-		File file = new File(fileString);
-		if (!file.exists()) {
-			fileString = fallback;
-		} else {
-			try {
-				fileString = file.getCanonicalPath();
-			} catch (IOException e) {
+		if (fileString != null) {
+			File file = new File(fileString);
+			if (file.exists()) {
+				try {
+					return file.getCanonicalPath();
+				} catch (IOException e) {
+				}
 			}
 		}
 		
-		return fileString;
+		return fallback;
 	}
 	
 	@Override
