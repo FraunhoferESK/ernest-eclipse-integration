@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.fraunhofer.esk.ernest.core.analysismodel/src"
-    modelPluginID="de.fraunhofer.esk.ernest.core.analysismodel" modelName="Analysis"
-    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="6.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2015 Fraunhofer Institute for Embedded Systems and&#xD;&#xA;Communication Technologies ESK&#xD;&#xA;&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;This file is part of ERNEST.&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;Fraunhofer ESK - initial API and implementation"
+    modelDirectory="/de.fraunhofer.esk.ernest.core.analysismodel/src" modelPluginID="de.fraunhofer.esk.ernest.core.analysismodel"
+    modelName="Analysis" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false" binaryCompatibleReflectiveMethods="true" colorProviders="true"
+    operationReflection="true" importOrganizing="true" decoration="Live">
   <foreignModel>analysis.ecore</foreignModel>
   <genPackages prefix="Ernest" disposableProviderFactory="true" ecorePackage="analysis.ecore#/">
     <genClasses ecoreClass="analysis.ecore#//Model">
@@ -12,7 +14,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//Model/timingModel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//Model/tracingResults"/>
     </genClasses>
-    <nestedGenPackages prefix="Architecture" disposableProviderFactory="true" ecorePackage="analysis.ecore#//architecture">
+    <nestedGenPackages prefix="Architecture" basePackage="ernest" disposableProviderFactory="true"
+        ecorePackage="analysis.ecore#//architecture">
       <genClasses image="false" ecoreClass="analysis.ecore#//architecture/Port">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//architecture/Port/name"/>
       </genClasses>
@@ -39,6 +42,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference analysis.ecore#//architecture/Function/allocatedTo"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//architecture/Function/offset"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//architecture/Function/jitter"/>
       </genClasses>
       <genClasses image="false" ecoreClass="analysis.ecore#//architecture/Connector">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//architecture/Connector/name"/>
@@ -109,16 +113,17 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference analysis.ecore#//architecture/HardwareConnector/connectedTo"/>
       </genClasses>
-      <nestedGenPackages prefix="Types" disposableProviderFactory="true" ecorePackage="analysis.ecore#//architecture/types">
+      <nestedGenPackages prefix="Types" basePackage="ernest.architecture" disposableProviderFactory="true"
+          ecorePackage="analysis.ecore#//architecture/types">
         <genEnums typeSafeEnumCompatible="false" ecoreEnum="analysis.ecore#//architecture/types/PortKind">
           <genEnumLiterals ecoreEnumLiteral="analysis.ecore#//architecture/types/PortKind/In"/>
           <genEnumLiterals ecoreEnumLiteral="analysis.ecore#//architecture/types/PortKind/Out"/>
           <genEnumLiterals ecoreEnumLiteral="analysis.ecore#//architecture/types/PortKind/InOut"/>
         </genEnums>
         <genEnums typeSafeEnumCompatible="false" ecoreEnum="analysis.ecore#//architecture/types/SchedType">
-          <genEnumLiterals ecoreEnumLiteral="analysis.ecore#//architecture/types/SchedType/FixedPriorityPreemptive"/>
-          <genEnumLiterals ecoreEnumLiteral="analysis.ecore#//architecture/types/SchedType/EarliestDeadlineFirst"/>
           <genEnumLiterals ecoreEnumLiteral="analysis.ecore#//architecture/types/SchedType/RoundRobin"/>
+          <genEnumLiterals ecoreEnumLiteral="analysis.ecore#//architecture/types/SchedType/EarliestDeadlineFirst"/>
+          <genEnumLiterals ecoreEnumLiteral="analysis.ecore#//architecture/types/SchedType/FixedPriorityPreemptive"/>
           <genEnumLiterals ecoreEnumLiteral="analysis.ecore#//architecture/types/SchedType/FPPRM"/>
         </genEnums>
         <genEnums typeSafeEnumCompatible="false" ecoreEnum="analysis.ecore#//architecture/types/ImplementationKind">
@@ -136,7 +141,7 @@
         </genEnums>
       </nestedGenPackages>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Timingspecification" disposableProviderFactory="true"
+    <nestedGenPackages prefix="Timingspecification" basePackage="ernest" disposableProviderFactory="true"
         ecorePackage="analysis.ecore#//timingspecification">
       <genClasses image="false" ecoreClass="analysis.ecore#//timingspecification/DelayConstraint">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -184,18 +189,12 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//timingspecification/ConstraintValidation/endtime"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Tracing" disposableProviderFactory="true" ecorePackage="analysis.ecore#//tracing">
+    <nestedGenPackages prefix="Tracing" basePackage="ernest" disposableProviderFactory="true"
+        ecorePackage="analysis.ecore#//tracing">
+      <genDataTypes ecoreDataType="analysis.ecore#//tracing/TraceReader"/>
       <genClasses ecoreClass="analysis.ecore#//tracing/TracingResults">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//tracing/TracingResults/name"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//tracing/TracingResults/trace"/>
-      </genClasses>
-      <genClasses ecoreClass="analysis.ecore#//tracing/EventOccurrence">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//tracing/EventOccurrence/timestamp"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference analysis.ecore#//tracing/EventOccurrence/port"/>
-      </genClasses>
-      <genClasses ecoreClass="analysis.ecore#//tracing/ERNESTTrace">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//tracing/ERNESTTrace/occurrences"/>
       </genClasses>
       <genClasses ecoreClass="analysis.ecore#//tracing/BinaryTrace">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//tracing/BinaryTrace/fileLocation"/>
@@ -203,6 +202,8 @@
       </genClasses>
       <genClasses image="false" ecoreClass="analysis.ecore#//tracing/Trace">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//tracing/Trace/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//tracing/Trace/readerExtension"/>
+        <genOperations ecoreOperation="analysis.ecore#//tracing/Trace/getTraceReader"/>
       </genClasses>
       <genClasses ecoreClass="analysis.ecore#//tracing/EventMapping">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//tracing/EventMapping/elementID"/>
