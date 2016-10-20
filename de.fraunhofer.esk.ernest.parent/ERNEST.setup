@@ -84,19 +84,7 @@
       xsi:type="setup.p2:P2Task"
       label="CDT">
     <requirement
-        name="org.eclipse.cdt.feature.group"/>
-    <requirement
         name="org.eclipse.cdt.sdk.feature.group"/>
-    <requirement
-        name="org.eclipse.cdt.autotools.feature.group"/>
-    <requirement
-        name="org.eclipse.linuxtools.cdt.libhover.feature.feature.group"/>
-    <requirement
-        name="org.eclipse.cdt.qt.feature.group"/>
-    <requirement
-        name="org.eclipse.cdt.testsrunner.feature.feature.group"/>
-    <requirement
-        name="org.eclipse.cdt.msw.feature.group"/>
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
@@ -246,6 +234,11 @@
           name="Mars">
         <repository
             url="http://download.eclipse.org/releases/mars"/>
+      </repositoryList>
+      <repositoryList
+          name="Neon">
+        <repository
+            url="http://download.eclipse.org/releases/neon"/>
       </repositoryList>
     </targlet>
   </setupTask>
